@@ -103,8 +103,8 @@ bst = BST()
 
 bst.insert(12)
 bst.insert(10)
-bst.insert(-2)
 bst.insert(-3)
+bst.insert(-2)
 
 bst.traverseInOrder()
 print(bst.getMin())
