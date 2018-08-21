@@ -1,43 +1,80 @@
 class Node:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, data):
+        self.data = data
         self.next = None
-    
-    def __str__(self):
-        return str(self.name)
 
-class LinkedList:
+    def getData(self):
+        return self.data
+
+    def getNext(self):
+        return self.next
+
+    def setData(self, newdata):
+        self.data = newdata
+
+    def setNext(self, newnext):
+        self.next =newnext
+
+class linkedList:
     def __init__(self):
         self.head = None
 
-    def listprint(self):
-        printname = self.head
-        while printname is not None:
-            print(printname.name)
-            printname = printname.next
-    
-    def insertBeginning(self, newdata):
-        NewNode = Node(newdata)
-        NewNode.next = self.head
-        self.head = NewNode
+    def isEmpty(self):
+        return self.head == None
 
-list1 = LinkedList()
-list1.head = Node('node1')
-n2 = Node('node2')
-n3 = Node('node3')
-n4 = Node('node4')
-n5 = Node('node5')
-n6 = Node('node6')
+    def addNode(self, item):
+        node = Node(item)
+        node.setNext(self.head)
+        self.head = node
 
-list1.head.next = n2
-n2.next = n3
-n3.next = n4
-n4.next = n5
-n5.next = n6
+    def size(self):
+        current = self.head
+        count = 0
+        while current != None:
+            count = count + 1
+            current = current.getNext()
+        print(count)
 
-list1.insertBeginning("node0")
-list1.listprint()
+    def search(self, item):
+        current = self.head
+        found = False
+        while current != None and not found:
+            if current.getData() == item:
+                found = True
+            else:
+                current = current.getNext()
+        return found
 
+    def remove(self, item):
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if  current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+        if previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
 
+    def show(self):
+        clist = []
+        current = self.head
+        while current != None:
+            clist.append(current.data)
+            current = current.next
+        print(clist)
 
-
+linkedlist = linkedList()
+linkedlist.addNode(1)
+linkedlist.addNode(2)
+linkedlist.addNode(3)
+linkedlist.addNode(5)
+print(linkedlist.isEmpty())
+linkedlist.size()
+linkedlist.remove(3)
+linkedlist.show()
+print(linkedlist.search(3))
