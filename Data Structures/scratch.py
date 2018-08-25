@@ -11,7 +11,8 @@
 #                 a[i] = a[i+1]
 #                 a[+1] = temp
 #         passnum = passnum - 1
-alist = [9, 10, 6, 2, 4]
+# alist = [9, 10, 6, 2, 4]
+
 # shortBubble(alist)
 # print(alist)
 
@@ -33,11 +34,61 @@ alist = [9, 10, 6, 2, 4]
 # shortBubbleSort(alist)
 # print(alist)
 
-def selectionSort(a):
-    for fillslot in range(len(a)-1, 0, 1):
-        positionOfMax = 0
-        for location in range(1, fillslot+1):
-            if a[location] > a[positionOfMax]:
-                positionOfMax = location
+# def selectionSort(a):
+#     for fillslot in range(len(a)-1, 0, -1):
+#         positionOfMax = 0
+        
+#         for location in range(1, fillslot+1):
+#             if a[location] > a[positionOfMax]:
+#                 positionOfMax = location
 
-            
+#         temp = a[fillslot]
+#         a[fillslot] = a[positionOfMax]
+#         a[positionOfMax] = temp
+
+# alist = [54,26,93,17,77,31,44,55,20]
+# print(alist)
+# selectionSort(alist)
+# print(alist)
+
+# def insertSort(a):
+#     for index in range(1, len(a)):
+#         currentvalue = a[index]
+#         position = index
+
+#         while position > 0 and a[position-1] > currentvalue:
+#             print(position)
+#             a[position] = a[position-1]
+#             position = position - 1
+
+#         a[position] = currentvalue
+
+# alist = [54,26,93,17,77,31,44,55,20]
+# insertSort(alist)
+# print(alist)
+
+def shellSort(a):
+    sublistcount = len(a)//3
+    while sublistcount > 0:
+        for startposition in range(sublistcount):
+            gapInsertionSort(a, startposition, sublistcount)
+
+            print('After increments of size {} the list is {}'.format( sublistcount, a))
+
+        sublistcount = sublistcount // 3
+def gapInsertionSort(a, start, slc):
+    for i in range(start+slc, len(a), slc):
+        currentvalue = a[i]
+        position = i
+
+        while position >= slc and a[position-slc] > currentvalue:
+            a[position] = a[position-slc]
+            position = position-slc
+
+        a[position] = currentvalue
+
+
+alist = [5, 16, 20, 12, 3, 8, 9, 17, 19, 7]
+shellSort(alist)
+print(alist)
+print(10//3)
