@@ -1,6 +1,7 @@
 class Queue:
-    def __init__(self):
+    def __init__(self, k):
         self.items = []
+        self.size = k
 
     def isEmpty(self):
         return self.items == []
@@ -11,18 +12,18 @@ class Queue:
     def dequeue(self):
         self.items.pop()
 
-    def size(self):
+    def shoeSize(self):
         return len(self.items)
 
     def showQueue(self):
         print(self.items)
 
 
-que = Queue()
+que = Queue(10)
 que.enqueue(1)
 que.enqueue(2)
 que.enqueue(3)
 que.enqueue(4)
 que.enqueue(6)
-print(que.size())
+# print(que.size())
 que.showQueue()

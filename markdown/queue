@@ -1,0 +1,20 @@
+Queue
+Class
+- The queue class that takes in self
+
+    Functions
+    - isEmpty: return True if items list is isEmpty
+    - Enqueue: insert item in the first place of items list
+    - Dequeue: pop the last item from items list
+    - Size: return the length of the items list
+    - showQueue: print items list
+
+    Test:
+    - #TODO does class return a list
+    - #TODO does isEmpty return False when False
+    - #TODO does list increase by 1 when an item is Enqueue
+    - #TODO does list decrease by 1 when an item is Dequeue
+    - #TODO does item get added to the front of the list
+    - #TODO does item get taken from the rear
+    - #TODO does show return a list
+

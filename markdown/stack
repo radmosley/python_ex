@@ -1,0 +1,11 @@
+Stack
+Class
+- The stack class that takes in self
+
+    Functions
+    - isEmpty: return True if items list is isEmpty
+    - Push: insert item in the first place of items list
+    - Pop: pop the last item from items list
+    - Peek: return the value of the last in the index
+    - size: return the length of the items list
+    - showStack: print items list
